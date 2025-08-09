@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bảng idol TikTok - pho-tv</title>
+  <link rel="shortcut icon" type="image/png" href="https://i.imgur.com/7GriRcP.png">
+  <!-- Bootstrap for modern layout -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f6f6fa;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .nav-header, .header {
+      background: #ff4f81;
+      color: #fff;
+    }
+    .nav-header {
+      padding: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+    }
+    .brand-logo img {
+      height: 36px;
+      margin-right: 10px;
+      border-radius: 8px;
+    }
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1.5px;
+    }
+    .header-content nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 16px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .header-content nav a:hover {
+      background: #fff;
+      color: #ff4f81;
+    }
+
+    .sidebar {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      padding: 20px 16px;
+      min-width: 220px;
+      height: fit-content;
+      margin-bottom: 24px;
+    }
+    .sidebar h3 {
+      color: #ff4f81;
+      font-size: 1.12rem;
+      margin-bottom: 12px;
+    }
+    .sidebar label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1em;
+      color: #444;
+    }
+    .container-main {
+      max-width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    main {
+      flex: 1;
+      min-width: 300px;
+    }
+    h2 {
+      color: #ff4f81;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+    .idol-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: flex-start;
+    }
+    .idol-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      width: 250px;
+      padding: 20px 16px;
+      transition: box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .idol-card:hover {
+      box-shadow: 0 4px 16px rgba(255,79,129,0.18);
+    }
+    .idol-avatar {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 14px;
+      border: 2px solid #ff4f81;
+    }
+    .idol-name {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    .idol-info {
+      font-size: 0.98em;
+      color: #555;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .idol-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .button {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      background: #ff4f81;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      font-size: 1em;
+    }
+    .button.secondary {
+      background: #fff;
+      color: #ff4f81;
+      border: 1px solid #ff4f81;
+    }
+    footer {
+      background: #fff;
+      color: #888;
+      text-align: center;
+      padding: 16px 0;
+      border-top: 1px solid #eee;
+      margin-top: 36px;
+      font-size: 0.98em;
+    }
+    @media (max-width: 900px) {
+      .container-main {
+        flex-direction: column;
+        gap: 0;
+        padding: 0 8px;
+      }
+      .sidebar {
+        margin-bottom: 18px;
+      }
+      .idol-list {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 600px) {
+      .idol-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .idol-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-header">
+    <a class="brand-logo" href="#"><img src="https://i.imgur.com/7GriRcP.png" alt="Logo"></a>
+    <span class="brand-title">pho-tv Idol TikTok</span>
+  </div>
+  <div class="header">
+    <div class="header-content">
+      <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Idol nữ</a>
+        <a href="#">Idol nam</a>
+        <a href="#">Book lịch</a>
+        <a href="#">Liên hệ</a>
+      </nav>
+    </div>
+  </div>
+  <div class="container-main">
+    <aside class="sidebar">
+      <h3>Bộ lọc</h3>
+      <label><input type="checkbox" id="filterMale"> Idol Nam</label>
+      <label><input type="checkbox" id="filterFemale"> Idol Nữ</label>
+      <hr>
+      <h3>Giá</h3>
+      <label><input type="checkbox" id="filterLow"> Dưới 120.000đ</label>
+      <label><input type="checkbox" id="filterHigh"> Trên 120.000đ</label>
+    </aside>
+    <main>
+      <h2>Danh sách Idol nổi bật</h2>
+      <div class="idol-list" id="idol-list">
+        <!-- Idol cards render here -->
+      </div>
+    </main>
+  </div>
+  <footer>
+    &copy; 2025 pho-tv Idol Collection. All rights reserved.
+  </footer>
+
+  <script>
+  // Dữ liệu idol mẫu
+  const idols = [
+    {
+      name: "Ngọc Anh",
+      avatar: "https://randomuser.me/api/portraits/women/11.jpg",
+      gender: "female",
+      height: "165cm",
+      weight: "48kg",
+      measurements: "85-56-88",
+      price: "100000",
+      priceShow: "100.000đ/30 phút",
+      video: "https://www.youtube.com/embed/ScMzIvxBSi4",
+    },
+    {
+      name: "Minh Tuấn",
+      avatar: "https://randomuser.me/api/portraits/men/12.jpg",
+      gender: "male",
+      height: "178cm",
+      weight: "70kg",
+      measurements: "Không công khai",
+      price: "150000",
+      priceShow: "150.000đ/30 phút",
+      video: "",
+    },
+    {
+      name: "Hà Linh",
+      avatar: "https://randomuser.me/api/portraits/women/13.jpg",
+      gender: "female",
+      height: "160cm",
+      weight: "46kg",
+      measurements: "80-55-85",
+      price: "120000",
+      priceShow: "120.000đ/30 phút",
+      video: "",
+    },
+    {
+      name: "Bảo Trân",
+      avatar: "https://randomuser.me/api/portraits/women/21.jpg",
+      gender: "female",
+      height: "167cm",
+      weight: "49kg",
+      measurements: "88-58-89",
+      price: "130000",
+      priceShow: "130.000đ/30 phút",
+      video: "",
+    },
+    {
+      name: "Quốc Huy",
+      avatar: "https://randomuser.me/api/portraits/men/22.jpg",
+      gender: "male",
+      height: "180cm",
+      weight: "74kg",
+      measurements: "Không công khai",
+      price: "160000",
+      priceShow: "160.000đ/30 phút",
+      video: "",
+    },
+    {
+      name: "Mỹ Duyên",
+      avatar: "https://randomuser.me/api/portraits/women/31.jpg",
+      gender: "female",
+      height: "163cm",
+      weight: "47kg",
+      measurements: "83-56-85",
+      price: "110000",
+      priceShow: "110.000đ/30 phút",
+      video: "",
+    },
+    {
+      name: "Hoàng Sơn",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      gender: "male",
+      height: "175cm",
+      weight: "72kg",
+      measurements: "Không công khai",
+      price: "140000",
+      priceShow: "140.000đ/30 phút",
+      video: "",
+    }
+  ];
+
+  function renderIdolCard(idol) {
+    return `
+      <div class="idol-card">
+        <img class="idol-avatar" src="${idol.avatar}" alt="Avatar ${idol.name}">
+        <div class="idol-name">${idol.name}</div>
+        <div class="idol-info">
+          <div>Chiều cao: ${idol.height}</div>
+          <div>Cân nặng: ${idol.weight}</div>
+          <div>Số đo 3 vòng: ${idol.measurements}</div>
+        </div>
+        <div class="idol-actions">
+          <a href="#" class="button secondary" title="Xem chi tiết"><i class="fa fa-info-circle"></i> Xem chi tiết</a>
+          <a href="#" class="button" title="Book call"><i class="fa fa-phone"></i> Book call (${idol.priceShow})</a>
+        </div>
+      </div>
+    `;
+  }
+
+  function filterIdols() {
+    let filtered = idols;
+    const male = document.getElementById('filterMale').checked;
+    const female = document.getElementById('filterFemale').checked;
+    const low = document.getElementById('filterLow').checked;
+    const high = document.getElementById('filterHigh').checked;
+
+    if (male && !female) filtered = filtered.filter(i => i.gender === 'male');
+    if (female && !male) filtered = filtered.filter(i => i.gender === 'female');
+    if (!male && !female) filtered = filtered;
+    if (low && !high) filtered = filtered.filter(i => parseInt(i.price) <= 120000);
+    if (high && !low) filtered = filtered.filter(i => parseInt(i.price) > 120000);
+
+    document.getElementById('idol-list').innerHTML = filtered.map(renderIdolCard).join('');
+  }
+
+  document.getElementById('filterMale').addEventListener('change', filterIdols);
+  document.getElementById('filterFemale').addEventListener('change', filterIdols);
+  document.getElementById('filterLow').addEventListener('change', filterIdols);
+  document.getElementById('filterHigh').addEventListener('change', filterIdols);
+
+  // Hiển thị mặc định tất cả idol
+  filterIdols();
+  </script>
+</body>
+</html>
